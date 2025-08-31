@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #1f2937;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cv-container {
+    width: 210mm; /* A4 width */
+    min-height: 297mm; /* A4 height */
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 15mm; /* A4 safe area */
+}
+
+.section-title {
+    color: #2563eb;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #dbeafe;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title i {
+    font-size: 1.25rem;
+}
+
+.skill-bar {
+    background-color: #e5e7eb;
+    border-radius: 100px;
+    overflow: hidden;
+    height: 8px;
+    margin-top: 0.5rem;
+}
+
+.skill-progress {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.contact-info a {
+    transition: color 0.2s;
+    text-decoration: underline;
+    color: #2563eb;
+}
+
+.contact-info a:hover {
+    color: #3b82f6;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    border-left: 2px solid #dbeafe;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #3b82f6;
+}
+
+.tag {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0.25rem 0.25rem 0.25rem 0;
+}
+
+.download-button {
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+    margin-top: 20px;
+}
+
+.download-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(37, 99, 235, 0.4);
+}
+
+.profile-img-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #dbeafe;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chart-container {
+    position: relative;
+    height: 280px;
+    margin-bottom: 1.5rem;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #f1f5f9;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.skill-badge i {
+    margin-right: 0.5rem;
+    color: #3b82f6;
+}
+
+.visualization-section {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Print styles for PDF */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .cv-container {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+        padding: 15mm;
+        width: 100%;
+        height: auto;
+    }
+    
+    .download-button {
+        display: none;
+    }
+    
+    /* Ensure no page breaks inside important elements */
+    .section, .timeline-item, .skills-container {
+        page-break-inside: avoid;
+    }
+    
+    /* Control page breaks */
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+@media (max-width: 768px) {
+    .cv-container {
+        padding: 1.5rem;
+        width: 100%;
+        height: auto;
+    }
+    
+    .chart-container {
+        height: 220px;
+    }
+}
